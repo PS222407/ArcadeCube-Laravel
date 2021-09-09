@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root{
+    --blue: rgb(40,220,250);
+    --pink: rgb(250,70,250);
+}
+
+body{
+    margin: 0px;
+    background: url(../images/body.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: 'Press Start 2P', cursive;
+}
+/* GRIDS */
+#welcome-grid{
+    display: grid;
+    grid-template-rows: 84px 1fr;
+}
+
+/* NAV */
+#nav{
+    position: fixed;
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    display: flex;
+    border-bottom: white 2px solid;
+    border-top: white 2px solid;
+    font-size: 1.5vw;
+    width: 100%;
+    z-index: 2;
+    grid-row: 1;
+}
+#nav a{
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    transition: transform 0.1s ease;
+}
+#nav a:hover{
+    transform: scale(0.95);
+}
+#nav a:first-of-type{
+    font-size: 2vw;
+}
+#nav a:nth-of-type(2),
+#nav a:nth-of-type(3){
+    color: rgb(250,70,250);
+    align-self: flex-end;
+}
+#nav a:last-of-type {
+    color: var(--blue);
+    align-self: flex-end;
+    margin-left: auto;
+}
+#nav a span:nth-of-type(even){
+    color: var(--blue);
+}
+#nav a span:nth-of-type(odd){
+    color: var(--pink);
+}
+
+
+/* WELCOME PAGE dinges transparent glass zooi */
+.transparent-container {
+    height: max-content;
+    grid-row: 2;
+    margin: 50px auto 50px auto;
+    width: 80%;
+    border-radius: 7.5px;
+
+    box-shadow: 0px 0px 20px 10px rgba(255, 255, 255, 0.05),
+    inset 8000px 0px 50000px rgba(0, 0, 0, 0.025);
+
+    backdrop-filter: blur(30px);
+    background: rgba(0, 0, 0, 0.35  );
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    max-width: 1200px;
+
+}
+.transparent-container div{
+    grid-column: 1;
+    color: white;
+    padding: 50px;
+}
+.transparent-container h2{
+    font-size: 1.5em;
+}
+.transparent-container p{
+    font-size: 1em;
+}
+.transparent-container img{
+    grid-column: 2;
+    margin: 20px auto;
+    width: 70%;
+    object-fit: contain;
+    align-self: flex-start;
+    transition: transform 1s ease;
+    transition-property: transform;
+}
+.transparent-container img:hover{
+    transform: rotate(10deg) scale(1.1);
+}
+
+/* GAMING */
+.games-container {
+    height: max-content;
+    grid-row: 2;
+    margin: 50px auto 50px auto;
+    width: 80%;
+    border-radius: 7.5px;
+
+    box-shadow: 0px 0px 20px 10px rgba(255, 255, 255, 0.05),
+    inset 8000px 0px 50000px rgba(0, 0, 0, 0.025);
+
+    backdrop-filter: blur(30px);
+    background: rgba(0, 0, 0, 0.35);
+
+    max-width: 1200px;
+}
+
+.gamecards-container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.gamecards-container div{
+    margin: 40px 0px;
+    color: white;
+    width: 25%;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+
+@media only screen and (max-width: 800px) {
+    .transparent-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: max-content 1fr;
+    }
+    .transparent-container div{
+        grid-row: 1;
+        grid-column: 1;
+    }
+    .transparent-container img{
+        grid-row: 2;
+        grid-column: 1;
+    }
+}
