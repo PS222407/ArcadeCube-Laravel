@@ -11,7 +11,7 @@
         <span>b</span>
         <span>e</span>
     </a>
-    <a href="{{ route('games') }}">Games</a>
-    <a href="{{ route('information') }}">Information</a>
-    <a href="{{ route('login') }}"> Login/Registreer</a>
+    <a class="{{ request()->is('games') ? 'active' : '' }}" href="{{ route('games') }}">Games</a>
+    <a class="{{ request()->is('information') ? 'active' : '' }}" href="{{ route('information') }}">Information</a>
+    <a class="{{ request()->is('login') || request()->is('register') ? 'active' : '' }}" href="{{ route('login') }}"> Login/Registreer</a>
 </nav>
