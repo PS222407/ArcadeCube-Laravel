@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use PhpParser\Node\Stmt\TryCatch;
 
 class RegisterController extends Controller
 {
@@ -50,9 +51,10 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            "name" => ["required", "string", "max:255"],
+            "lname" => ["required", "string", "max:255"],
+            "email" => ["required", "string", "max:255", "unique:users", "regex:/^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$/u"],
+            "password" => ["required", "string", "min:8", "confirmed", "regex:/(?=.*[a-zA-Z])(?=.*[0-9])(?=.*.{8,})(?=.*[ !#$%&'()*+,-.\/:;<=>?@\[\]^_`{|}~])/u"],
         ]);
     }
 
@@ -64,10 +66,30 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        //voornaam fixen voor in database
+        $voornaam = $data['name'];
+        $voornaam = trim(preg_replace('/\s+/', ' ', $voornaam));
+        $voornaam = strtolower($voornaam);
+        $parts = preg_split('/\s+/', $voornaam);
+        foreach ($parts as &$value) {
+            $value = ucfirst($value);
+        }
+        $voornaam = implode(" ", $parts);
+
+        //achternaam fixen voor in database
+        $achternaam = $data['lname'];
+        $achternaam = trim(preg_replace('/\s+/', ' ', $achternaam));
+        $achternaam = strtolower($achternaam);
+        $parts = preg_split('/\s+/', $achternaam);
+        $lastpart = ucfirst($parts[count($parts) - 1]);
+        $parts = array_replace($parts, array(count($parts) - 1 => $lastpart));
+        $achternaam = implode(" ", $parts);
+
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'name' => $voornaam,
+            'lname' => $achternaam,
+            'email' => strtolower($data['email']),
+            'password' => Hash::make($data['password'], ['rounds' => 12]),
         ]);
     }
 }

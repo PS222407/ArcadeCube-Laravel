@@ -13,5 +13,9 @@
     </a>
     <a class="{{ request()->is('games') ? 'active' : '' }}" href="{{ route('games') }}">Games</a>
     <a class="{{ request()->is('information') ? 'active' : '' }}" href="{{ route('information') }}">Information</a>
-    <a class="{{ request()->is('login') || request()->is('register') ? 'active' : '' }}" href="{{ route('login') }}"> Login/Registreer</a>
+    @guest
+        <a class="{{ request()->is('login') || request()->is('register') ? 'active' : '' }}" href="{{ route('login') }}"> Login/Registreer</a>
+    @else
+        <a href="{{ route('account') }}"> <img class="account-img" src="{{ asset('images/account.png') }}" alt=""> {{ Auth::user()->name }}</a>
+    @endguest
 </nav>

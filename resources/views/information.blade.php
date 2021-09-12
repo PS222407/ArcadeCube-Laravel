@@ -1,17 +1,15 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('layouts.app')
+
 @section('title')
     Information
 @endsection
-@include("layouts.head")
 
-<body id="welcome-grid">
-    @include("layouts.nav")
+@section('content')
+    <body id="welcome-grid">
+        @include("layouts.nav")
 
-    <div class="transparent-container">
-        <p>information</p>
-        <img src="{{ asset('images/cube.png') }}" alt="led cube">
-    </div>
-</body>
-
-</html>
+        <div class="transparent-container">
+            <p>information</p>
+        </div>
+    </body>
+@endsection
