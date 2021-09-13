@@ -16,6 +16,21 @@
     @guest
         <a class="{{ request()->is('login') || request()->is('register') ? 'active' : '' }}" href="{{ route('login') }}"> Login/Registreer</a>
     @else
-        <a href="{{ route('account') }}"> <img class="account-img" src="{{ asset('images/account.png') }}" alt=""> {{ Auth::user()->name }}</a>
+        <a id="hahalol" onclick="openAccountMenu()" onmouseover="hahalol()"> <img class="account-img" src="{{ asset('images/account.png') }}" alt=""> {{ Auth::user()->name }}</a>
     @endguest
 </nav>
+<div id="dropdown-account">
+    <div>
+        <a href="{{ route('account') }}">account</a>
+    </div>
+    <div>
+        <a href="{{ route('logout') }}"
+        onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+            {{ __('Logout') }}
+        </a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+        </form>
+    </div>
+</div>

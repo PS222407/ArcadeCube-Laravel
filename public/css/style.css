@@ -30,7 +30,9 @@ body {
 a:hover{
     color: var(--blue);
 }
-
+.padding25{
+    padding: 25px;
+}
 /* GRIDS */
 
 #welcome-grid {
@@ -41,6 +43,7 @@ a:hover{
 /* NAV */
 
 #nav {
+    height: 84px;
     position: fixed;
     list-style-type: none;
     padding: 0px;
@@ -65,7 +68,8 @@ a:hover{
     padding: 20px;
     cursor: pointer;
     display: flex;
-    transition: transform 0.1s ease;
+    transition: transform 0.5s ease;
+    line-height: 44px;
 }
 
 #nav a:hover {
@@ -78,13 +82,12 @@ a:hover{
 
 #nav a:nth-of-type(2), #nav a:nth-of-type(3) {
     color: rgb(250, 70, 250);
-    align-self: flex-end;
 }
 
 #nav a:last-of-type {
     color: var(--blue);
-    align-self: flex-end;
     margin-left: auto;
+    /* transition: all 0.5s ease; */
 }
 
 #nav a span:nth-of-type(even) {
@@ -145,7 +148,6 @@ a:hover{
     object-fit: contain;
     align-self: flex-start;
     transition: transform 1s ease;
-    transition-property: transform;
 }
 
 .transparent-container .img:hover {
@@ -201,6 +203,14 @@ a:hover{
 
 .login-grid input:focus {
     border-bottom: var(--pink) 4px solid;
+}
+
+.passeye{
+    float: right;
+    height: 40px;
+    object-fit: contain;
+    cursor: pointer;
+    margin: -65px 0px 25px auto;
 }
 
 .input-submit {
@@ -296,6 +306,99 @@ a:hover{
     transform: translateX(30px);
   }
 
+/* account information */
+.account-grid{
+    display: grid;
+    grid-template-rows: 75px 1fr;
+}
+.account-subgrid{
+    grid-row: 2;
+
+    display: grid;
+    grid-template-rows: 100px 100px max-content;
+    grid-template-columns: 1fr;
+
+    padding: 40px;
+}
+
+#dropdown-account{
+    position: absolute;
+    right: 0px;
+    top: 84px;
+    width: 200px;
+    height: 0px;
+    z-index: 2;
+    border-bottom-left-radius: 20px;
+    background-color: white;
+    transition: all 0.3s ease-in-out;
+
+    border: solid white 0px;
+    border-top: 0px;
+    border-right: 0px;
+    box-shadow: 0px 0px 20px 10px rgba(255, 255, 255, 0.05), inset 8000px 0px 50000px rgba(0, 0, 0, 0.025);
+    backdrop-filter: blur(50px);
+    background: rgba(0, 0, 0, 0.5);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+#dropdown-account div{
+    display: none;
+    align-self: center;
+}
+
+.account-header{
+    grid-row: 1;
+    font-size: 30px;
+    padding-left: 25px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    line-height: 75px;
+    background-color: var(--blue);
+}
+
+.account-leaderboard{
+    grid-column: 1;
+    grid-row: 3;
+    display: grid;
+    grid-template-rows: 25px 1fr;
+}
+.account-leaderboard div:nth-of-type(1){
+    grid-row: 1;
+    padding-left: 5px;
+    line-height: 30px;
+    background-color: var(--pink);
+}
+.account-grid tr, td{
+    border: var(--blue) solid 3px;
+}
+.account-grid table{
+    grid-row: 2;
+    border: var(--pink) solid 5px;
+}
+
+.account-subgrid .div1{
+    grid-column: 1;
+    grid-row: 1;
+}
+.account-subgrid .div2{
+    grid-column: 1;
+    grid-row: 2;
+}
+.account-subgrid a{
+    color: var(--pink);
+}
+.account-subgrid .profilepicture{
+    z-index: 2;
+    grid-column: 1;
+    grid-row: 1 / span2;
+    margin: 0px 0px 0px auto;
+    border-radius: 50%;
+    border: var(--pink) 3px solid;
+}
+
+
 @media only screen and (max-width: 800px) {
     .welcome-grid {
         grid-template-columns: 1fr;
@@ -308,5 +411,86 @@ a:hover{
     .transparent-container .img {
         grid-row: 2;
         grid-column: 1;
+    }
+}
+
+/* Games leaderboard */
+.infogame-container {
+    margin: 40px 40px;
+    color: white;
+}
+
+.infogame-container h2{
+    font-size: 1.5em;
+}
+
+.infogame-container p{
+    font-size: 1em;
+}
+
+#containerleaderboard {
+    margin: 40px 40px;
+    height: auto;
+}
+
+.rowlb {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px solid black;
+    background: white;
+    color: black;
+}
+
+#rowtlp {
+    background: black;
+    color: white;
+}
+
+#whitetext{
+    background: black;
+    color: white;
+}
+
+.namelb {
+    position: relative;
+    display: inline-block;
+    width: 60%;
+    line-height: 45px;
+}
+
+.placelb {
+    width: 5%;
+    margin-left: 10px;
+    position: relative;
+    display: inline-block;
+}
+
+.distanceplayer {
+    margin-left: 20px;
+}
+
+.scorelb {
+    position: relative;
+    display: inline-block;
+    width: 10%;
+}
+
+.rowlb:nth-child(2) {
+    background: gold;
+}
+
+.rowlb:nth-child(3) {
+    background: #c0c0c0;
+}
+
+.rowlb:nth-child(4) {
+    background: #cd7f32;
+}
+
+@media only screen and (max-width: 800px) {
+    .namelb {
+        margin-left: 10%;
     }
 }

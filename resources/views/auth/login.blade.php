@@ -24,6 +24,7 @@
 
                 <label for="password">Password</label>
                 <input id="password" autocomplete="off" type="password" class="@error('password') is-invalid @enderror" name="password">
+                <img onclick="showPassword(this)" class="passeye" src="{{ asset('images/eye.png') }}" alt="">
 
                 @error('password')
                     <span class="invalid-feedback" role="alert">

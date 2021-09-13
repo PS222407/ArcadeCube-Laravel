@@ -40,6 +40,7 @@
 
                 <label for="password">Password</label>
                 <input id="password" onkeyup="tbPassword_KeyUp()" autocomplete="off" type="password" class="@error('password') is-invalid @enderror" name="password">
+                <img onclick="showPassword(this)" class="passeye" src="{{ asset('images/eye.png') }}" alt="">
                 @error('password')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -48,6 +49,7 @@
 
                 <label for="password-confirm">Confirm password</label>
                 <input id="password-confirm" autocomplete="off" type="password" name="password_confirmation">
+                <img onclick="showPasswordConfirm(this)" class="passeye" src="{{ asset('images/eye.png') }}" alt="">
 
                 <label class="bold">Minimal password requirements are:</label>
                 <ul>
