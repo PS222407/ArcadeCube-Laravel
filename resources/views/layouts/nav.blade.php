@@ -16,7 +16,7 @@
     @guest
         <a class="{{ request()->is('login') || request()->is('register') ? 'active' : '' }}" href="{{ route('login') }}"> Login/Registreer</a>
     @else
-        <a id="hahalol" onclick="openAccountMenu()" onmouseover="hahalol()"> <img class="account-img" src="{{ asset('images/account.png') }}" alt=""> {{ Auth::user()->name }}</a>
+        <a id="hahalol" onclick="openAccountMenu()" onmouseover="hahalol()"> <img class="account-img" src="{{ asset('images/account.png') }}" alt=""> {{ Auth::user()->username }}</a>
     @endguest
 </nav>
 <div id="dropdown-account">

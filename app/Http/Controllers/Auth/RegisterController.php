@@ -51,6 +51,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
+            "username" => ["required", "string", "max:255"],
             "name" => ["required", "string", "max:255"],
             "lname" => ["required", "string", "max:255"],
             "email" => ["required", "string", "max:255", "unique:users", "regex:/^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$/u"],
@@ -86,6 +87,7 @@ class RegisterController extends Controller
         $achternaam = implode(" ", $parts);
 
         return User::create([
+            'username' => $data['username'],
             'name' => $voornaam,
             'lname' => $achternaam,
             'email' => strtolower($data['email']),

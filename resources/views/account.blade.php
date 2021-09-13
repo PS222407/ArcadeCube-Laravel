@@ -16,7 +16,7 @@
                 <div class="account-subgrid">
                     <img class="profilepicture" src="{{asset('images/account.png')}}" alt="">
                     <div class="div1">
-                        <p class="username">Username: <span>{{ Auth::user()->name }}</span></p>
+                        <p class="username">Username: <span>{{ Auth::user()->username }}</span></p>
                         <a href="">Change my username</a>
                     </div>
                     <div class="div2">

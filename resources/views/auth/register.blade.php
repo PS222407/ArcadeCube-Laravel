@@ -14,6 +14,14 @@
             <form method="POST" action="{{ route('register') }}">
                 @csrf
 
+                <label for="username">Username</label>
+                <input id="username" autocomplete="none" type="text" class="@error('username') is-invalid @enderror" name="username" value="{{ old('username') }}">
+                @error('username')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+
                 <label for="name">Firstname</label>
                 <input id="name" autocomplete="none" type="text" class="@error('name') is-invalid @enderror" name="name" value="{{ old('name') }}">
                 @error('name')
