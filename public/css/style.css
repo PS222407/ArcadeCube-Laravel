@@ -218,6 +218,7 @@ a:hover{
 }
 
 .login-grid input {
+    width: 100%;
     background-color: transparent;
     border: none;
     color: white;

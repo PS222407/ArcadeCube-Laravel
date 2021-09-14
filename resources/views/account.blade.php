@@ -24,34 +24,29 @@
                             <p class="email">Email: <span>{{ Auth::user()->email }}</span></p>
                             <a href="">Change my email address</a>
                             <br />
-                            <a href="">Change my password</a>
+                            @if (Route::has('password.request'))
+                                <a href="{{ route('password.request') }}">Change your password?</a>
+                            @endif
                         </div>
+
                         <div class="account-leaderboard">
                             <div>Leaderboard</div>
                             <table>
                                 <tr>
                                     <td>GAMES</td>
-                                    <td>Time</td>
-                                    <td>Speed</td>
                                     <td>Score</td>
                                 </tr>
                                 <tr>
-                                    <td>3D Snake: </td>
-                                    <td>67238s</td>
-                                    <td>67238s</td>
-                                    <td>67238s</td>
+                                    <td>3D Snake:</td>
+                                    <td>{{ $snake }}</td>
                                 </tr>
                                 <tr>
-                                    <td>3D Tetris: </td>
-                                    <td>67238s</td>
-                                    <td>67238s</td>
-                                    <td>67238s</td>
+                                    <td>3D Tetris:</td>
+                                    <td>{{ $tetris }}</td>
                                 </tr>
                                 <tr>
-                                    <td>3D Ping Pong: </td>
-                                    <td>67238s</td>
-                                    <td>67238s</td>
-                                    <td>67238s</td>
+                                    <td>3D Ping Pong:</td>
+                                    <td>{{ $pingpong }}</td>
                                 </tr>
                             </table>
                         </div>
