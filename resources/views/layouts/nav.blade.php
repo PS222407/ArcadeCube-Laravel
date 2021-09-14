@@ -14,9 +14,17 @@
     <a class="{{ request()->is('games') ? 'active' : '' }}" href="{{ route('games') }}">Games</a>
     <a class="{{ request()->is('information') ? 'active' : '' }}" href="{{ route('information') }}">Information</a>
     @guest
-        <a class="{{ request()->is('login') || request()->is('register') ? 'active' : '' }}" href="{{ route('login') }}"> Login/Registreer</a>
+        <a class="{{ request()->is('login') || request()->is('register') ? 'active' : '' }}" href="{{ route('login') }}">
+            Login/Registreer</a>
     @else
-        <a id="hahalol" onclick="openAccountMenu()" onmouseover="hahalol()"> <img class="account-img" src="{{ asset('images/account.png') }}" alt=""> {{ Auth::user()->username }}</a>
+        @if (Auth::user()->email_verified_at != null)
+            <a id="hahalol" onclick="openAccountMenu()" onmouseover="hahalol()"> <img class="account-img"
+                    src="{{ asset('images/account.png') }}" alt=""> {{ Auth::user()->username }}</a>
+        @else
+            <a class="{{ request()->is('login') || request()->is('register') ? 'active' : '' }}"
+                href="{{ route('login') }}">
+                Login/Registreer</a>
+        @endif
     @endguest
 </nav>
 <div id="dropdown-account">
@@ -24,8 +32,7 @@
         <a href="{{ route('account') }}">account</a>
     </div>
     <div>
-        <a href="{{ route('logout') }}"
-        onclick="event.preventDefault();
+        <a href="{{ route('logout') }}" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
             {{ __('Logout') }}
         </a>

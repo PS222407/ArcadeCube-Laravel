@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Score;
+use App\Http\Controllers\ScoreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,12 +17,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome')->name('welcome');
 Route::view('/games', 'games')->name('games');
-Route::view('/games/snake', 'games.snake')->name('snake');
-Route::view('/games/tetris', 'games.tetris')->name('tetris');
-Route::view('/games/pingpong', 'games.pingpong')->name('pingpong');
 Route::view('/information', 'information')->name('information');
 Route::view('/account', 'account')->name('account');
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
+Route::get("/games/snake", [ScoreController::class, "snakeScores"])->name("snake");
+Route::get("/games/tetris", [ScoreController::class, "tetrisScores"])->name("tetris");
+Route::get("/games/pingpong", [ScoreController::class, "pingpongScores"])->name("pingpong");
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

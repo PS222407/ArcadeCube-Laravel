@@ -33,6 +33,22 @@ a:hover{
 .padding25{
     padding: 25px;
 }
+.btn-pink{
+    display: block;
+    margin: 20px auto;
+    color: var(--pink);
+}
+.btn-pink:hover{
+    text-decoration: underline;
+}
+.loguit-style{
+    margin: auto;
+    width: max-content;
+    color: var(--pink);
+}
+.loguit-style a:hover{
+    color: var(--pink);
+}
 /* GRIDS */
 
 #welcome-grid {
@@ -99,7 +115,7 @@ a:hover{
 }
 
 .account-img {
-    height: 2.3vw;
+    height: 40px;
     align-self: baseline;
     margin-right: 10px;
     padding: 3px;
@@ -185,6 +201,15 @@ a:hover{
 }
 
 /* LOGIN AND REGISTER */
+
+.emailsend{
+    text-align: center;
+    grid-column: 2;
+    background: var(--blue);
+    border-radius: 10px;
+    padding: 15px;
+    border: solid 3px white;
+}
 
 .login-grid {
     padding: 50px 0px;
@@ -371,6 +396,7 @@ a:hover{
     background-color: var(--pink);
 }
 .account-grid tr, td{
+    padding-left: 10px;
     border: var(--blue) solid 3px;
 }
 .account-grid table{
