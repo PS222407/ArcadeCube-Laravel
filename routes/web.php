@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Score;
 use App\Http\Controllers\ScoreController;
@@ -18,7 +19,8 @@ use App\Http\Controllers\ScoreController;
 Route::view('/', 'welcome')->name('welcome');
 Route::view('/games', 'games')->name('games');
 Route::view('/information', 'information')->name('information');
-// Route::view('/account', 'account')->name('account');
+
+Route::get('/account/{id}/username', [CustomerController::class, 'edit']);
 
 Auth::routes(['verify' => true]);
 

@@ -24,9 +24,7 @@
                             <p class="email">Email: <span>{{ Auth::user()->email }}</span></p>
                             <a href="">Change my email address</a>
                             <br />
-                            @if (Route::has('password.request'))
-                                <a href="{{ route('password.request') }}">Change your password?</a>
-                            @endif
+                            <a href="{{ route('password.request') }}">Change your password?</a>
                         </div>
 
                         <div class="account-leaderboard">
