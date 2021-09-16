@@ -22,7 +22,7 @@
                         </div>
                         <div class="div2">
                             <p class="email">Email: <span>{{ Auth::user()->email }}</span></p>
-                            <a href="">Change my email address</a>
+                            <a href="account/{{ Auth::user()->id }}/email">Change my email address</a>
                             <br />
                             <a href="{{ route('password.request') }}">Change your password?</a>
                         </div>

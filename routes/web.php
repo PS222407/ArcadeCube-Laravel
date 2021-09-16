@@ -20,9 +20,11 @@ Route::view("/", "welcome")->name("welcome");
 Route::view("/games", "games")->name("games");
 Route::view("/information", "information")->name("information");
 
-Route::get("/account/{id}/username", [CustomerController::class, "edit"]);
-Route::put("/account/{id}", [CustomerController::class, "update"]);
+Route::get("/account/{id}/username", [CustomerController::class, "editUsername"]);
+Route::put("/account/{id}/username", [CustomerController::class, "updateUsername"]);
 
+Route::get("/account/{id}/email", [CustomerController::class, "editEmail"]);
+Route::put("/account/{id}/email", [CustomerController::class, "updateEmail"]);
 
 Auth::routes(["verify" => true]);
 

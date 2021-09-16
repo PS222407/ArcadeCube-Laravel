@@ -7,12 +7,12 @@
 @section('content')
     <div class="transparent-container login-grid">
         <div class="left"></div>
-            <form method="POST" action="/account/{{ $usernameFromController->id }}">
+            <form method="POST" action="/account/{{ $userFromController->id }}/username">
                 @csrf
                 @method("PUT")
 
-                <label for="username">New username: {{ $idFromController }}</label>
-                <input type="text" class="{{ $errors->first("username") ? " error" : ""}}" placeholder="@error('username'){{ $message }}@enderror" id="username" name="username" value="{{ $usernameFromController->username }}">
+                <label for="username">New username:</label>
+                <input type="text" class="{{ $errors->first("username") ? " error" : ""}}" placeholder="@error('username'){{ $message }}@enderror" id="username" name="username" value="{{ $userFromController->username }}">
                 {{-- {{ $customer->customerName }} --}}
                 <button class="input-submit" type="submit">Change username</button>
             </form>
