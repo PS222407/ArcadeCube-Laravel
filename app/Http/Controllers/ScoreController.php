@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Score;
+use App\Models\Customer;
 use App\Models\User;
 use Illuminate\Support\Arr;
 use PhpParser\Node\Stmt\TryCatch;
@@ -34,8 +35,8 @@ class ScoreController extends Score
         $snake = Score::where('username', '=', Auth::user()->username)->where('game', '=', 'snake')->value('points');
         $tetris = Score::where('username', '=', Auth::user()->username)->where('game', '=', 'tetris')->value('points');
         $pingpong = Score::where('username', '=', Auth::user()->username)->where('game', '=', 'pingpong')->value('points');
+        // $username = Customer::where('id', '=', Auth::user()->id)->value('id');
 
-
-        return view("account", array("snake" => $snake, "tetris" => $tetris, "pingpong" => $pingpong));
+        return view("account", array("snake" => $snake, "tetris" => $tetris, "pingpong" => $pingpong)); // "username" => $username
     }
 }

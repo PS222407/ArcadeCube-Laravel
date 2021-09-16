@@ -16,15 +16,17 @@ use App\Http\Controllers\ScoreController;
 |
 */
 
-Route::view('/', 'welcome')->name('welcome');
-Route::view('/games', 'games')->name('games');
-Route::view('/information', 'information')->name('information');
+Route::view("/", "welcome")->name("welcome");
+Route::view("/games", "games")->name("games");
+Route::view("/information", "information")->name("information");
 
-Route::get('/account/{id}/username', [CustomerController::class, 'edit']);
+Route::get("/account/{id}/username", [CustomerController::class, "edit"]);
+Route::put("/account/{id}", [CustomerController::class, "update"]);
 
-Auth::routes(['verify' => true]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Auth::routes(["verify" => true]);
+
+Route::get("/home", [App\Http\Controllers\HomeController::class, "index"])->name("home");
 Route::get("/games/snake", [ScoreController::class, "snakeScores"])->name("snake");
 Route::get("/games/tetris", [ScoreController::class, "tetrisScores"])->name("tetris");
 Route::get("/games/pingpong", [ScoreController::class, "pingpongScores"])->name("pingpong");

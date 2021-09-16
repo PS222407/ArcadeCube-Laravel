@@ -18,7 +18,7 @@
                         <img class="profilepicture" src="{{ asset('images/account.png') }}" alt="">
                         <div class="div1">
                             <p class="username">Username: <span>{{ Auth::user()->username }}</span></p>
-                            <a href="">Change my username</a>
+                            <a href="account/{{ Auth::user()->id }}/username">Change my username</a>
                         </div>
                         <div class="div2">
                             <p class="email">Email: <span>{{ Auth::user()->email }}</span></p>

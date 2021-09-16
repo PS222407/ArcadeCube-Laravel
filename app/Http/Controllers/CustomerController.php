@@ -12,4 +12,17 @@ class CustomerController extends Controller
         $customer = Customer::where("id", $id)->first();
         return view("auth.username", ["idFromController" => $id, 'usernameFromController' => $customer]);
     }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            "username" => "required"
+        ]);
+
+        $user = Customer::where("id", $id)->first();
+        $user->username = $request->input("username");
+        $user->update();
+
+        return view("welcome");
+    }
 }
