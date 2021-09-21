@@ -35,15 +35,15 @@
                                     <td>Score</td>
                                 </tr>
                                 <tr>
-                                    <td>3D Snake:</td>
+                                    <td>3D Snake</td>
                                     <td>{{ $snake }}</td>
                                 </tr>
                                 <tr>
-                                    <td>3D Tetris:</td>
+                                    <td>3D Tetris</td>
                                     <td>{{ $tetris }}</td>
                                 </tr>
                                 <tr>
-                                    <td>3D Ping Pong:</td>
+                                    <td>3D Ping Pong</td>
                                     <td>{{ $pingpong }}</td>
                                 </tr>
                             </table>

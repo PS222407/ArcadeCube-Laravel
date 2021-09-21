@@ -30,8 +30,6 @@
             ?>
 
             @foreach ($ScoresFromController as $scoreForLoop)
-                {{-- {{ $scoreForLoop->game }} --}}
-
                 <div class="rowlb">
                     <div class="placelb">#<?php echo $i++ ?>.</div>
                     <div class="namelb">

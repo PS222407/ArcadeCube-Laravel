@@ -11,8 +11,4 @@ class Score extends Model
     use HasFactory;
     public $timestamps = false;
     protected $table = 'scores';
-    // protected $fillable = [
-    //     "customerNumber", "customerName", "contactFirstName", "contactLastName", "phone", "addressLine1", "city", "postalCode", "country"
-    // ];
-    // protected $primaryKey = "customerNumber";
 }
